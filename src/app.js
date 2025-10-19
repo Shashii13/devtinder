@@ -8,45 +8,7 @@ const jwt=require("jesonwebtoken");
 app.use(express.json());
 app.use(cookieParser());
 
-// error in this get becuase get api not get from body 
-app.get("/profile",async (req,res)=>{
-    try{
-        const cookies=req.cookies;
-    const{token}=cookies;
-
-    if(!token){
-        throw new error("invalifd token");
-
-    }
-
-    const decodedMessage=await jwt.verify(token,"DEV@token790");
-    console.log("decoded message");
-    const {_id}=deCodedMessage;
-    console.log("loged in user is:"+_id)
-
-    const user=await User.findById(_id);
-    if(!user){
-        throw new error("user not exist");
-    }
-    console.log(user);
-    res.send("reading cookies")
-    }catch(err){
-        res.status(400).send("something went wrong");
-
-    }
-})
-app.get("/user",async (req,res)=>{
-    const userEmail=req.body.emailId;
-    
-    try{
-        const user = await User.find({ emailId: userEmail });
-        res.send(user);
-
-    } catch(err){
-        res.status(400).send("something went wrong");
-
-    }
-})
+// erro
 app.get("/feed",async (req,res)=>{
   try{
  const user = await User.find({});
