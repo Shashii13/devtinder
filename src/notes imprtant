@@ -1,0 +1,81 @@
+imortant point 
+EXPRESS
+-> http method-post,patch,delete,get
+-> req.query (user?userid=10) after ? this sign it print for this command
+->"/user"- handle all the request have starting /user;
+->"/user/admin it not handle all user havinf /user ;
+->req.params(this is on postman api testing call -> user/10/sashi/kumar) this is dynamic for this app.get("/user/:userId/:name/:lastName),
+-> route. handler work line by line case of multiple route hamdlder 
+->next() use this for but it send only one response if 1 route not send response then next handler send 
+->(req,res.next) 
+->this function is called middleare because this work in middle api send rersponce and it decide to send which rersponce
+->(error,req,res,next)
+->error handling
+MONgodaTA BASE 
+->monodb and compass conect and create cluster
+->new file create databse.js and install mongoose 
+->connect database and then server is listen
+->create user schema and model and how to use it 
+-> if we api post req same data then throw error so only 1 times post if we change data then post again
+-> const user = new User(req.body); this means get data from postman body json and save it to data base
+next step is get this data from daatbase and show on ui 
+-> awiat use with sync fn
+-> user .find({}) all the user 
+->user.save() means save user data to database
+-> api-get api user by email
+->delete user by id- use this findByIdAndDelete(userId)
+->update user - by this fun await User.findByIdAndUpdate({_id:userId},data);
+->validation user
+doubt -> patch update
+->validator. library
+-> validate(value){
+            if(!validator.isEmail(value)){
+                throw new Error("invalid email address");
+            }
+        } 
+        this is for vada email addres at db level;
+        ->
+JWT and COOKIES
+->tcp/ip protocol
+
+API LIST
+auth router
+
+-->post api for signup
+->post login
+->post logout
+->post signup
+
+profile router
+->get/profile/view
+->patch for profile
+->get for profile
+
+connection router
+->patch for profile padd update
+->POST/REQUEST/SEND/INTERESTED/USERID
+->POST/request/review/rejected/requested
+
+STATUS -ignore interesrted accepted 
+
+
+EXPRESS ROUTER 
+->
+
+
+hold for router post
+ const{emailId,password}=req.body;
+        const user=await User.findOne({emailId:emailId});
+        if(!user){
+            throw new Error("invalid password")
+        }
+        const (isPasswordValid) =await bcrypt.compare(password,user.password);
+        if(isPasswordVaid){
+            const token=await jwt.sign({_id:user._id},"DEV@tinder790")
+            res.cookoe("token","dhqihgdidhihiqwbdiqhdhid");
+            res.send("login succesful");
+        } else{
+            throw new error("invalid credentials");
+        }
+     
+    }
