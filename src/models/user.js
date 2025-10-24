@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     },
     gender: {
         type: String,
+        enum:{
+            values:["male","female","accepted","rejected"],
+            message:'{value} is incorrect
+        }
         validate(value){
             if(!["male","female","other"].includes(value)){
                 throw new Error("gender data is not valid");
@@ -63,6 +67,11 @@ const userSchema = new mongoose.Schema({
         timestamps: true,
     }
 );
+
+userSchema.methods.getJWT=async ()=>{
+    const user=this;
+    condt token=await jwt.sign
+}
 
 // ✅ Correct way to create model
 const User = mongoose.model("User", userSchema);

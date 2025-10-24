@@ -11,6 +11,7 @@ EXPRESS
 ->this function is called middleare because this work in middle api send rersponce and it decide to send which rersponce
 ->(error,req,res,next)
 ->error handling
+
 MONgodaTA BASE 
 ->monodb and compass conect and create cluster
 ->new file create databse.js and install mongoose 
@@ -27,6 +28,9 @@ next step is get this data from daatbase and show on ui
 ->update user - by this fun await User.findByIdAndUpdate({_id:userId},data);
 ->validation user
 doubt -> patch update
+
+
+
 ->validator. library
 -> validate(value){
             if(!validator.isEmail(value)){
@@ -35,6 +39,30 @@ doubt -> patch update
         } 
         this is for vada email addres at db level;
         ->
+
+ ->encrypt data  bcrypt.hash    
+ validate data in signup ai
+ install bcypt oackage
+ -?create paswordhash using bcrypt.hash and save the user in excrupted password
+ create login api  
+
+ceate login api
+-> post api
+take email and apssword from req.body then check email id is presenet in data base by findone()
+then we check password is valid or not  if not then thro error
+
+->installl cookie parser
+->send dummy cookie to user
+->create get/profile api and check if you get the cookie back
+->install jsonwebtoken
+->in login api,after email and password validation ,create a jwt token and send it to user in cookies 
+->read the cookies. inside your pofile api and find the logged in user
+->userauth middkeware
+->add the userauth iddleware in profie api and a new sendconnection api 
+-> set the expry of jwt token and cookies
+->
+
+
 JWT and COOKIES
 ->tcp/ip protocol
 
